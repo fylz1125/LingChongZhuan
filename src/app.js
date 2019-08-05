@@ -20,7 +20,7 @@ var LoginLayer = cc.Layer.extend({
         });
         this.addChild(logo, 0);
 
-        var label = new cc.LabelTTF("全民水浒林冲传", res.s_font_fzyhjw, 80);
+        var label = new cc.LabelTTF("全民水浒 林冲传", res.s_font_fzyhjw, 80);
         label.setColor(cc.color(189, 8, 8));
         label.setPosition(size.width/2, size.height/2 + logo.getContentSize().height/2 + 50);
         this.addChild(label,0);
@@ -29,9 +29,20 @@ var LoginLayer = cc.Layer.extend({
         startBt.setPosition(cc.p(size.width/2,size.height/2 - logo.getContentSize().height/2 - 50));
         this.addChild(startBt,0);
 
+        startBt.addTouchEventListener(this.startGame,this);
 
+        if (!cc.sys.localStorage.getItem("LCLevel")) {
+            cc.sys.localStorage.setItem("LCLevel", 1);
+            cc.sys.localStorage.setItem("LCExp", 0);
+        }
 
         return true;
+    },
+    startGame:function(target, state)
+    {
+        if( state === ccui.Widget.TOUCH_ENDED ){
+            cc.log("start game--");
+        }
     }
 });
 
