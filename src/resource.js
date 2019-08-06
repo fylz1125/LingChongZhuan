@@ -46,6 +46,7 @@ var res = {
     s_ui_login_huawen:"res/UI/icon_login_huawen.png",
     s_ui_login_wenzi:"res/UI/icon_login_wenzi.png",
     s_ui_shouye:"res/UI/shouye2.0_bg.jpg",
+    s_ui_training:"res/UI/training.png"
     
 };
 

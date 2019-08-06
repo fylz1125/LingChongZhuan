@@ -2,11 +2,13 @@
 var LoginContext;
 var LoginLayer = cc.Layer.extend({
     bg: null,
+    menu:null,
     ctor: function () {
         this._super();
         LoginContext = this;
 
         Music.playBGM();
+        this.addMenu();
 
         var size = cc.winSize;
         this.bg = new cc.Sprite(res.s_ui_denglu);
@@ -36,7 +38,6 @@ var LoginLayer = cc.Layer.extend({
         node.addChild(startBt);
         node.setPosition(size.width / 2, size.height / 2 - logo.getContentSize().height / 2 - 80);
         this.addChild(node);
-
         // 可以加一个浮动动画
         var move = cc.moveBy();
 
@@ -51,18 +52,18 @@ var LoginLayer = cc.Layer.extend({
         return true;
     },
 
-    startGame: function (target, state) {
-        cc.log("start game");
-        var menuLayout = MenuLayout.createLayout();
-        var size = cc.winSize;
-        menuLayout.setAnchorPoint(0.5, 0.5);
-        menuLayout.setPosition(size.width / 2, size.height * 1.5);
-        LoginContext.addChild(menuLayout, 0);
+    addMenu:function(){
+        if(!this.menu){
+            this.menu = MenuLayout.createLayout();
+            var size = cc.winSize;
+            this.menu.setAnchorPoint(0.5, 0.5);
+            this.menu.setPosition(size.width / 2, size.height * 1.5);
+            this.addChild(this.menu, 100);
+        }
+    },
 
-        // 动画
-        var topDown = cc.moveTo(2, size.width / 2, size.height / 2);
-        var easing01 = topDown.easing(cc.easeElasticOut());
-        menuLayout.runAction(easing01);
+    startGame: function() {
+        LoginContext.menu.goDown();
     }
 });
 
