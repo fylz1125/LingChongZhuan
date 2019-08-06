@@ -9,9 +9,6 @@ var res = {
     // data
     s_data_chapter:"res/data/chapterData.json",
     s_data_player:"res/data/playerData.json",
-
-    // fonts
-    s_font_fzyhjw:"res/fonts/FZYHJW.TTF",
     
     // hero card
     s_hero_chaijin:"res/hero/chaijin.png",
@@ -48,13 +45,22 @@ var res = {
     s_ui_denglu_yz:"res/UI/denglujiemian_yz.jpg",
     s_ui_login_huawen:"res/UI/icon_login_huawen.png",
     s_ui_login_wenzi:"res/UI/icon_login_wenzi.png",
-    s_ui_shouye:"res/UI/shouye2.0_bg.jpg"
-
-
-
+    s_ui_shouye:"res/UI/shouye2.0_bg.jpg",
+    
 };
+
+var g_fonts = [
+    {
+        type:"font",
+        name:"FZYHJW",
+        srcs:["res/fonts/FZYHJW.ttf"]
+    },
+];
 
 var g_resources = [];
 for (var i in res) {
     g_resources.push(res[i]);
+}
+for (var i in g_fonts) {
+    g_resources.push(g_fonts[i]);
 }
