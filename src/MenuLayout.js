@@ -127,6 +127,18 @@ var MenuLayout = ccui.Layout.extend({
             trainBt.setPressedActionEnabled(true);
             trainBt.setPosition(cc.p(this.size.width / 2, button6.y - button1.getContentSize().height / 2));
             this.addChild(trainBt);
+            trainBt.addClickEventListener(function(){
+                // cc.loader.loadJson(res.s_data_chapter, function(err, data){
+                //     if(err) {
+                //         cc.log("load file failed--");
+                //         return;
+                //     }
+                //     cc.log(data["training"]);
+                // });
+
+                var trainScene = StoryScene.createScene();
+                cc.director.pushScene(trainScene);
+            });
 
             var backBt = new ccui.Button(res.s_ui_training);
             // false，使用自定义size

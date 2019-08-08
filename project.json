@@ -16,6 +16,7 @@
         "src/app.js",
         "src/MyLoaderScene.js",
         "src/GameUtil.js",
-        "src/MenuLayout.js"
+        "src/MenuLayout.js",
+        "src/StoryScene.js"
     ]
 }
